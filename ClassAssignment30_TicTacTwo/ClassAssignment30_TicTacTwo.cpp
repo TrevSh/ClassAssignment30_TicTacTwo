@@ -48,7 +48,7 @@ int main()
         displayBoard(board);
         turn = opponent(turn);
     }
-    announceWinner(winner(board), computer, human);         //TODO: Fix the winner always being whoever goes first and instant game over
+    announceWinner(winner(board), computer, human);
 
     system("pause");
     return 0;
@@ -115,7 +115,7 @@ void displayBoard(const std::vector<char>& board) {
     std::cout << "\n\t" << board[3] << " | " << board[4] << " | " << board[5];
     std::cout << "\n\t" << "-----------";
     std::cout << "\n\t" << board[6] << " | " << board[7] << " | " << board[8];
-    std::cout << "\n\n";
+    std::cout << "\n\t" << "\n\n";
 }
 
 char winner(const std::vector<char>& board) {
@@ -134,8 +134,8 @@ char winner(const std::vector<char>& board) {
     //then we have a winner
     for (int row = 0; row < TOTAL_ROWS; ++row) {
         if ((board[WINNING_ROWS[row][0]] != EMPTY) &&
-            (board[WINNING_ROWS[row][0] == board[WINNING_ROWS[row][1]]]) &&
-            (board[WINNING_ROWS[row][1] == board[WINNING_ROWS[row][2]]]))               //Goes through every row and checks to see if each not empty and the squares contains the same value (0,2, and 3)
+            (board[WINNING_ROWS[row][0]] == board[WINNING_ROWS[row][1]]) &&
+            (board[WINNING_ROWS[row][1]] == board[WINNING_ROWS[row][2]]))               //Goes through every row and checks to see if each not empty and the squares contains the same value (0,2, and 3)
         {
             return board[WINNING_ROWS[row][0]];
         }
