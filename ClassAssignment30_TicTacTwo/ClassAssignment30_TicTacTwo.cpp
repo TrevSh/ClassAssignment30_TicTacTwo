@@ -48,7 +48,7 @@ int main()
         displayBoard(board);
         turn = opponent(turn);
     }
-    announceWinner(winner(board), computer, human);
+    announceWinner(winner(board), computer, human);         //TODO: Fix the winner always being whoever goes first and instant game over
 
     system("pause");
     return 0;
